@@ -12,12 +12,14 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         head->r = s.size();
         parse(s, head);
         convert(head);
+        delete head;
     }
     for(string s : folq){
         TreeNode* head = new TreeNode();
         head->r = s.size();
         parse(s, head);
         convert(head);
+        delete head;
     }
 }
 
@@ -120,13 +122,13 @@ bool FolParser::parse(string &s, TreeNode* tn){
             leftsemi--;
         }
     }
-    #ifdef DEBUG
-    cout<<"def"<<endl;
-    #endif
     tn->op = OP_DEF;
     tn->left = NULL;
     tn->right = NULL;
     tn->context = s.substr(tn->l, tn->r - tn->l);
+    #ifdef DEBUG
+    cout<<"def: "<<tn->context<<endl;
+    #endif
     return true;
 }
 
@@ -140,6 +142,9 @@ bool FolParser::convert(TreeNode* tn){
 void FolParser::impElim(TreeNode* tn){
     if(!tn) return;
     if(tn->op == OP_IMPLY){
+        #ifdef DEBUG
+        cout<<"imply eliminated"<<endl;
+        #endif
         TreeNode* tempNot = new TreeNode();
         tempNot->left = tn->left;
         tempNot->op = OP_NOT;
@@ -154,10 +159,16 @@ void FolParser::notInwd(TreeNode* tn){
     if(!tn) return;
     if(tn->op == OP_NOT){
         if(tn->left->op == OP_NOT){
+            #ifdef DEBUG
+            cout<<"double not eliminated"<<endl;
+            #endif
             TreeNode *tdel = tn->left;                  // Node Creating
             delete tdel;   // Many nodes to be deleted!!
             tn = tn->left->left;
         }else if(tn->left->op == OP_AND){
+            #ifdef DEBUG
+            cout<<"not into and"<<endl;
+            #endif
             TreeNode *tempNotLeft = new TreeNode(), *tempNotRight = new TreeNode();       // Node Creating
             tempNotLeft->left = tn->left->left;
             tempNotRight->left = tn->left->right;
@@ -167,6 +178,9 @@ void FolParser::notInwd(TreeNode* tn){
             tn->left = tempNotLeft;
             tn->right = tempNotRight;
         }else if(tn->left->op == OP_OR){
+            #ifdef DEBUG
+            cout<<"not into or"<<endl;
+            #endif
             TreeNode *tempNotLeft = new TreeNode(), *tempNotRight = new TreeNode();       // Node Creating
             tempNotLeft->left = tn->left->left;
             tempNotRight->left = tn->left->right;
@@ -176,6 +190,9 @@ void FolParser::notInwd(TreeNode* tn){
             tn->left = tempNotLeft;
             tn->right = tempNotRight;            
         }else if(tn->left->op == OP_DEF){  // must be default
+            #ifdef DEBUG
+            cout<<"not into def"<<endl;
+            #endif
             tn->context = tn->left->context;
             delete tn->left;
             tn->left = NULL;
@@ -195,6 +212,9 @@ void FolParser::andDstb(TreeNode* tn){
     if(!tn) return;
     if(tn->op == OP_OR){
         if(tn->left->op == OP_AND){
+            #ifdef DEBUG
+            cout<<"left and distributed"<<endl;
+            #endif
             tn->op = OP_AND;
             tn->left->op = OP_OR;
             TreeNode* tempRight = new TreeNode();                        // Node Creating
@@ -204,6 +224,9 @@ void FolParser::andDstb(TreeNode* tn){
             tn->left->right = tn->right;
             tn->right = tempRight;
         }else if(tn->right->op == OP_AND){
+            #ifdef DEBUG
+            cout<<"left and distributed"<<endl;
+            #endif
             tn->op = OP_AND;
             tn->right->op = OP_OR;
             TreeNode* tempLeft = new TreeNode();                         // Node Creating
@@ -224,7 +247,7 @@ int main(){
     /*
         read file
         */
-    ifstream t("../test.txt");
+    ifstream t("./test.txt");
     std::vector<string> folkb, folq;
     
     /*
