@@ -1,22 +1,24 @@
 #include"Parser.h"
 #include<iostream>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
 FolParser::FolParser(vector<string> folkb, vector<string> folq){
     
     for(string s : folkb){
+        s.erase(remove(s.begin(),s.end(),' '), s.end());
         cout<<"parsing "<<s<<endl;
         TreeNode* head = new TreeNode();
-        head->r = s.size();
+        head->r = s.size()-1;
         parse(s, head);
         convert(head);
         delete head;
     }
     for(string s : folq){
         TreeNode* head = new TreeNode();
-        head->r = s.size();
+        head->r = s.size()-1;
         parse(s, head);
         convert(head);
         delete head;
@@ -53,12 +55,12 @@ bool FolParser::parse(string &s, TreeNode* tn){
         ----------------------
         start with not (only need to look at the first char)
     */ 
-    if(s[tn->l+1]=='~'){
+    if(s.at(tn->l+1)=='~'){
         #ifdef DEBUG
-        cout<<"not"<<endl;
+        cout<<"not "<<tn->l<<" "<<tn->r<<endl;
         #endif
         tn->op = OP_NOT;
-        TreeNode* tn1;
+        TreeNode* tn1 = new TreeNode();             //creating new node
         tn->left = tn1;
         tn->right = NULL;
         tn1->l = tn->l+2;
@@ -74,7 +76,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
                 cout<<"and"<<endl;
                 #endif
                 tn->op = OP_AND;
-                TreeNode *tn1, *tn2;
+                TreeNode *tn1 = new TreeNode(), *tn2 = new TreeNode();             //creating new node
                 tn->left = tn1;
                 tn->right = tn2;
                 tn1->l = tn->l+1;
@@ -89,7 +91,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
                 cout<<"or"<<endl;
                 #endif
                 tn->op = OP_OR;
-                TreeNode *tn1, *tn2;
+                TreeNode *tn1 = new TreeNode(), *tn2 = new TreeNode();             //creating new node
                 tn->left = tn1;
                 tn->right = tn2;
                 tn1->l = tn->l+1;
@@ -125,7 +127,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
     tn->op = OP_DEF;
     tn->left = NULL;
     tn->right = NULL;
-    tn->context = s.substr(tn->l, tn->r - tn->l);
+    tn->context = s.substr(tn->l, tn->r - tn->l+1);
     #ifdef DEBUG
     cout<<"def: "<<tn->context<<endl;
     #endif
@@ -133,6 +135,9 @@ bool FolParser::parse(string &s, TreeNode* tn){
 }
 
 bool FolParser::convert(TreeNode* tn){
+    #ifdef DEBUG
+    cout<<"start converting"<<endl;
+    #endif
     impElim(tn);
     notInwd(tn);
     andDstb(tn);
