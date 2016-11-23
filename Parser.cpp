@@ -17,3 +17,11 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
 FolParser::~FolParser(){
 
 }
+
+KB FolParser::getKB(){
+    
+}
+
+vector<Clause> FolParser::getQuery(){
+    
+}

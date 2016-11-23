@@ -75,7 +75,9 @@ bool query(KB &kb, Clause qc){
 }
 
 int main(){
-    Argument a1 = {false, "John"}, a2 = {true, "x"}, a3 = {true, "y"}, a4 = {false, "Bob"}, a5 = {true, "y"}, a6(a5);
+    /*
+        read file
+        */
     ifstream t("../test.txt");
     std::vector<string> folkb, folq;
     
@@ -104,8 +106,23 @@ int main(){
         getline(t, temp_s);
         folkb.push_back(temp_s);
     }
-
-    // FolParser *parser = new FolParser();
+    
+    /*
+        let it be parsed into defined cnf structs
+        */
+    FolParser *parser = new FolParser(folkb,folq);
+    KB kb = parser->getKB();
+    vector<Clause> queries = parser->getQuery();
+    
+    /*
+        write to output files
+        */
+    ofstream output("output.txt");
+    for(Clause c : queries){
+        if(query(kb, c)) output<<"TRUE"<<endl;
+        else output<<"END"<<endl;
+    }
+    output.close();
     
     return 0;
 }
