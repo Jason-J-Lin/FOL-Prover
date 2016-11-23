@@ -40,17 +40,40 @@ struct KB{
     unordered_map<Predicate,Mapping> index;
 };
 
+enum Op{
+	OP_AND,
+	OP_OR,
+	OP_NOT,
+	OP_IMPLY,
+	OP_DEF
+};
+
+struct TreeNode{
+    Op op;
+    TreeNode* left;
+    int l,r;
+    TreeNode* right;
+    string context;
+    TreeNode(): op(OP_DEF), left(NULL), right(NULL), context(""), l(0), r(0) {}
+};
+
 class FolParser{
 public:
-    FolParser(string filename);
+    FolParser(vector<string> folkb, vector<string> folq);
     ~FolParser();
     
     KB getKB();
     std::vector<Clause> getQuery();
 
-private:
+protected:
     KB kb;
     std::vector<Clause> queries;
+    
+    bool parse(string &s, TreeNode* tn);
+    bool convert(TreeNode* tn);
+    void impElim(TreeNode* tn);
+    void notInwd(TreeNode* tn);
+    void andDstb(TreeNode* tn);
 };
 
 
