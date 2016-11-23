@@ -24,8 +24,7 @@ struct Argument{
 
 struct Literal{
     bool istrue;
-    Predicate predicate;
-    string name;
+    string predicate;
     vector<Argument> arguments;
 };
 
@@ -37,7 +36,7 @@ struct Clause{
 struct KB{
     // int size;
     vector<Clause> clauses;
-    unordered_map<Predicate,Mapping> index;
+    unordered_map<string,Mapping> index;
 };
 
 enum Op{
@@ -74,6 +73,8 @@ protected:
     void impElim(TreeNode* tn);
     void notInwd(TreeNode* tn);
     void andDstb(TreeNode* tn);
+    void archive(TreeNode* tn, Clause* c);
+    Literal parseLiteral(TreeNode* tn);
 };
 
 

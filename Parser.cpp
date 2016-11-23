@@ -2,14 +2,14 @@
 #include<iostream>
 #include <fstream>
 #include <algorithm>
+#include <cctype>
 
 using namespace std;
 
 FolParser::FolParser(vector<string> folkb, vector<string> folq){
-    
     for(string s : folkb){
         s.erase(remove(s.begin(),s.end(),' '), s.end());
-        cout<<"parsing "<<s<<endl;
+        cout<<"--------------parsing "<<s<<endl;
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
         parse(s, head);
@@ -136,11 +136,15 @@ bool FolParser::parse(string &s, TreeNode* tn){
 
 bool FolParser::convert(TreeNode* tn){
     #ifdef DEBUG
-    cout<<"start converting"<<endl;
+    cout<<"--------------converting"<<endl;
     #endif
     impElim(tn);
     notInwd(tn);
     andDstb(tn);
+    #ifdef DEBUG
+    cout<<"--------------archiving"<<endl;
+    #endif
+    archive(tn, NULL);
     return true;
 }
 
@@ -244,6 +248,80 @@ void FolParser::andDstb(TreeNode* tn){
     }
     andDstb(tn->left);                                  // Unsure about this logic
     andDstb(tn->right);
+}
+
+void FolParser::archive(TreeNode* tn, Clause* c){
+    if(!tn) return;
+    if(tn->op == OP_AND){
+        archive(tn->left, c);
+        archive(tn->right, c);
+        return;
+    }
+    if(!c){
+        #ifdef DEBUG
+        cout<<"adding clause"<<endl;
+        #endif
+        c = new Clause();
+        kb.clauses.push_back(*c);
+    }
+    if(tn->op == OP_OR){
+        archive(tn->left, c);
+        archive(tn->right, c);
+        return;
+    }
+    if(tn->op == OP_NOT || tn->op == OP_DEF){
+        Literal l = parseLiteral(tn);
+        int lpos = c->literals.size();
+        int lind = kb.clauses.size()-1;
+        if(kb.index.find(l.predicate)!=kb.index.end()){
+            kb.index[l.predicate].clausepos.push_back(lpos);
+            kb.index[l.predicate].clauseind.push_back(lind);
+            kb.index[l.predicate].size++;
+        }else{
+            Mapping m;
+            m.size = 1;
+            m.clausepos.push_back(lpos);
+            m.clauseind.push_back(lind);
+            kb.index.insert({l.predicate, m});
+        }
+        c->literals.push_back(l);        // update the kb index here.
+    }
+}
+
+Literal FolParser::parseLiteral(TreeNode* tn){
+    Literal l;
+    string s = tn->context;
+    if(s.size() == 0) cout<<"empty literal!!"<<endl;
+    switch(tn->op){
+        case OP_DEF:
+            l.istrue = true;
+            break;
+        case OP_NOT:
+            l.istrue = false;
+            break;
+        default:
+            cout<<"wrong literal!!"<<endl;
+            break;
+    }
+    for(int i= 0; i< s.size(); ++i){
+        if(s[i] == '('){
+            l.predicate = s.substr(0,i);                //  the problem is: how to update kb index mapping??
+            ++i;
+            for(int j = i; j< s.size(); ++j){
+                if(s[j] == ',' || j == s.size()-1){
+                    Argument a;
+                    string temps = s.substr(i, j-i);
+                    i = j+1;
+                    if(isupper(temps[0])) a.isvariable = false;
+                    else a.isvariable = true;
+                    a.id = temps;
+                    l.arguments.push_back(a);
+                }
+            }
+            break;
+        }
+    }
+    return l;
 }
 
 
