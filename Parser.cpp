@@ -1,5 +1,5 @@
 #include"Parser.h"
-#include<iostream>
+#include <iostream>
 #include <fstream>
 #include <algorithm>
 #include <cctype>
@@ -16,7 +16,12 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         convert(head);
         delete head;
     }
+    #ifdef DEBUG
+    cout<<"Queries"<<endl;
+    #endif
     for(string s : folq){
+        s.erase(remove(s.begin(),s.end(),' '), s.end());
+        cout<<"--------------parsing "<<s<<endl;
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
         parse(s, head);
@@ -263,10 +268,12 @@ void FolParser::archive(TreeNode* tn, Clause* c){
         #endif
         c = new Clause();
         kb.clauses.push_back(*c);
+        c = &(kb.clauses.back());
     }
     if(tn->op == OP_OR){
         archive(tn->left, c);
         archive(tn->right, c);
+        
         return;
     }
     if(tn->op == OP_NOT || tn->op == OP_DEF){
