@@ -1,42 +1,13 @@
 #include"Parser.h"
 #include<iostream>
+#include <fstream>
 
 using namespace std;
 
-typedef int Predicate;
-
-// 
-struct Mapping{
-    vector<int> clauseind;
-    vector<int> clausepos;
-    int size;
-};
-
-struct Argument{
-    bool isvariable;
-    string id;
-};
-
-struct Literal{
-    bool istrue;
-    Predicate predicate;
-    string name;
-    vector<Argument> arguments;
-};
-
-struct Clause{
-    vector<Literal> literals;
-    unordered_set<int> composition;
-};
-
-struct KB{
-    // int size;
-    vector<Clause> clauses;
-    unordered_map<Predicate,Mapping> index;
-};
 
 bool unifiable(Literal l1, Literal l2, unordered_map<int, Argument> &sub){
     
+    return false;
 }
 
 void unify(Clause c1, Clause c2, unordered_map<int, Argument> &sub){
@@ -64,7 +35,7 @@ bool concatenate(Clause &c1, Clause &c2){
     2. update the indexing map of kb.
     */
 void tellKB(KB &kb, const Clause &c){
-    int ind = kb.size();
+    int ind = kb.clauses.size();
     kb.clauses.push_back(c);
     for(int i = 0; i < c.literals.size(); ++i){
         if(kb.index.find(c.literals[i].predicate)!=kb.index.end()){
@@ -80,18 +51,19 @@ bool query(KB &kb, Clause qc){
     vector<int> toquery;
     for(Literal ql : qc.literals){
         if(kb.index.find(ql.predicate) == kb.index.end()) continue;
-        if(qc.composition.find(kb.index[ql.predicate]) != qc.composition.end()) continue;   // this clause is already used during the construction of qc.
+        
         Mapping mq = kb.index[ql.predicate];
-        for(int i  = 0; i< mq.size();++i){
+        for(int i  = 0; i< mq.size;++i){
+            if(qc.composition.find(mq.clauseind[i]) != qc.composition.end()) continue;   // this clause is already used during the construction of qc.
             Clause ci(kb.clauses[mq.clauseind[i]]);
             // check if unifiable
             unordered_map<int, Argument> sub;
-            if(unifiable(ql, ci[mq.clausepos[i]],sub)){
+            if(unifiable(ql, ci.literals[mq.clausepos[i]],sub)){
                 Clause cq(qc);
                 deduct(cq, i);
-                deduct(ci, mq.clausepos[i]));           // deduct the opposite literal from the clauses.
+                deduct(ci, mq.clausepos[i]);           // deduct the opposite literal from the clauses.
                 if(concatenate(cq, ci)) return true;    // add ci into cq.    if nothing left, the query succeeds.
-                toquery.push_back(kb.size());           // add to a queue, later query them.
+                toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
                 tellKB(kb, cq);                         // put new clause back to kb.
             }
         }
@@ -104,33 +76,36 @@ bool query(KB &kb, Clause qc){
 
 int main(){
     Argument a1 = {false, "John"}, a2 = {true, "x"}, a3 = {true, "y"}, a4 = {false, "Bob"}, a5 = {true, "y"}, a6(a5);
+    ifstream t("../test.txt");
+    std::vector<string> folkb, folq;
     
+    /*
+        save the lines of kb and query
+        */
+    int lines_kb, lines_q;
+    string s_lines_kb, s_lines_q;
     
+    if(!getline(t, s_lines_q)) return 1;
+    lines_q =stoi(s_lines_q);
     
-    /*std::vector<Argument> p1 = {a1,a2,a3};
-    Literal l1;
-    l1.istrue = true;
-    l1.predicate = 1;
-    l1.arguments = p1;
-    std::vector<Argument> p2 = {a2,a3,a4};
-    Literal l2;
-    l2.istrue = true;
-    l2.predicate = 2;
-    l2.arguments = p2;
-    std::vector<Argument> p3 = {a1,a5};
-    Literal l3;
-    l3.istrue = true;
-    l3.predicate = 1;
-    l3.arguments = p3;
+    folq.reserve(lines_q);
+    for(int i = 0; i<lines_q; ++i){
+        string temp_s;
+        getline(t, temp_s);
+        folq.push_back(temp_s);
+    }
     
-    Clause c1, c2;
-    c1.literals.push_back(l1);
-    c1.literals.push_back(l2);
-    c2.literals.push_back(l1);
+    getline(t, s_lines_kb);
+    lines_kb =stoi(s_lines_kb);
     
-    KB kb;
-    for(auto c : c1.literals) kb.index[c.predicate].push_back(kb.clauses.size());
-    kb.clauses.push_back(c1);*/
+    folkb.reserve(lines_kb);
+    for(int i = 0; i<lines_kb; ++i){
+        string temp_s;
+        getline(t, temp_s);
+        folkb.push_back(temp_s);
+    }
+
+    // FolParser *parser = new FolParser();
     
     return 0;
 }

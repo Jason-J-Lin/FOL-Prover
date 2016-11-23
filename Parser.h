@@ -43,6 +43,7 @@ struct KB{
 class FolParser{
 public:
     FolParser(string filename);
+    ~FolParser();
     
     KB getKB();
     std::vector<Clause> getQuery();
