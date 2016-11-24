@@ -1,15 +1,15 @@
-6 
+6
 F(Bob)
 H(John) 
-~H(Alice)
-~H(John) 
+(~H(Alice))
+(~H(John)) 
 G(Bob) 
 G(Alice)
 14 
+(D(x,y) => (~H(y))) 
 B(John,Alice) 
 B(John,Bob)
-(A(x) => H(x))) 
-(D(x,y) => (~H(y))) 
+(A(x) => H(x))
 ((B(x,y) & C(x,y)) => A(x))
 ((D(x,y) & F(y)) => C(x,y))
 D(John,Alice)

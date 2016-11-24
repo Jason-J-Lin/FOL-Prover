@@ -69,11 +69,13 @@ protected:
     std::vector<Clause> queries;
     
     bool parse(string &s, TreeNode* tn);
-    bool convert(TreeNode* tn);
+    bool convert(TreeNode*& tn);
+    void negate(TreeNode*& tn);
     void impElim(TreeNode* tn);
-    void notInwd(TreeNode* tn);
+    void notInwd(TreeNode*& tn);
     void andDstb(TreeNode* tn);
-    void archive(TreeNode* tn, Clause* c);
+    void archiveKB(TreeNode* tn, Clause* c);
+    void archiveQ(TreeNode* tn, Clause* c);
     Literal parseLiteral(TreeNode* tn);
 };
 

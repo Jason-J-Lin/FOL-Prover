@@ -14,6 +14,10 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         head->r = s.size()-1;
         parse(s, head);
         convert(head);
+        #ifdef DEBUG
+        cout<<"--------------archiving"<<endl;
+        #endif
+        archiveKB(head, NULL);
         delete head;
     }
     #ifdef DEBUG
@@ -25,7 +29,13 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
         parse(s, head);
+        negate(head);
         convert(head);
+        cout<<"--"<<head->context<<endl;
+        #ifdef DEBUG
+        cout<<"--------------archiving"<<endl;
+        #endif
+        archiveQ(head, NULL);
         delete head;
     }
 }
@@ -139,18 +149,27 @@ bool FolParser::parse(string &s, TreeNode* tn){
     return true;
 }
 
-bool FolParser::convert(TreeNode* tn){
+bool FolParser::convert(TreeNode*& tn){
     #ifdef DEBUG
     cout<<"--------------converting"<<endl;
     #endif
     impElim(tn);
     notInwd(tn);
     andDstb(tn);
-    #ifdef DEBUG
-    cout<<"--------------archiving"<<endl;
-    #endif
-    archive(tn, NULL);
     return true;
+}
+
+void FolParser::negate(TreeNode*& tn){
+    #ifdef DEBUG
+    cout<<"--------------negating"<<endl;
+    #endif
+    TreeNode* newHead = new TreeNode();
+    newHead->op = OP_NOT;
+    newHead->left = tn;
+    #ifdef DEBUG
+    cout<<"--"<<newHead->left->context<<endl;
+    #endif
+    tn = newHead;                    //hey! passing the reference of a pointer
 }
 
 void FolParser::impElim(TreeNode* tn){
@@ -169,16 +188,17 @@ void FolParser::impElim(TreeNode* tn){
     impElim(tn->right);
 }
 
-void FolParser::notInwd(TreeNode* tn){
+void FolParser::notInwd(TreeNode*& tn){
     if(!tn) return;
     if(tn->op == OP_NOT){
         if(tn->left->op == OP_NOT){
             #ifdef DEBUG
             cout<<"double not eliminated"<<endl;
             #endif
-            TreeNode *tdel = tn->left;                  // Node Creating
-            delete tdel;   // Many nodes to be deleted!!
+            // TreeNode *tdel = tn;                  // Node Creating
             tn = tn->left->left;
+            
+            // delete tdel, tdel->left;   // Many nodes to be deleted!!
         }else if(tn->left->op == OP_AND){
             #ifdef DEBUG
             cout<<"not into and"<<endl;
@@ -255,24 +275,24 @@ void FolParser::andDstb(TreeNode* tn){
     andDstb(tn->right);
 }
 
-void FolParser::archive(TreeNode* tn, Clause* c){
+void FolParser::archiveKB(TreeNode* tn, Clause* c){
     if(!tn) return;
     if(tn->op == OP_AND){
-        archive(tn->left, c);
-        archive(tn->right, c);
+        archiveKB(tn->left, c);
+        archiveKB(tn->right, c);
         return;
     }
     if(!c){
         #ifdef DEBUG
-        cout<<"adding clause"<<endl;
+        cout<<"adding clause to KB"<<endl;
         #endif
         c = new Clause();
         kb.clauses.push_back(*c);
         c = &(kb.clauses.back());
     }
     if(tn->op == OP_OR){
-        archive(tn->left, c);
-        archive(tn->right, c);
+        archiveKB(tn->left, c);
+        archiveKB(tn->right, c);
         
         return;
     }
@@ -295,10 +315,40 @@ void FolParser::archive(TreeNode* tn, Clause* c){
     }
 }
 
+void FolParser::archiveQ(TreeNode* tn, Clause* c){
+    if(!tn) return;
+    if(tn->op == OP_AND){
+        archiveQ(tn->left, c);
+        archiveQ(tn->right, c);
+        return;
+    }
+    if(!c){
+        #ifdef DEBUG
+        cout<<"adding clause to Q"<<endl;
+        #endif
+        c = new Clause();
+        queries.push_back(*c);
+        c = &(queries.back());
+    }
+    if(tn->op == OP_OR){
+        archiveQ(tn->left, c);
+        archiveQ(tn->right, c);
+        
+        return;
+    }
+    if(tn->op == OP_NOT || tn->op == OP_DEF){
+        // #ifdef DEBUG
+        // cout<<"******"<<tn->op<<endl;
+        // #endif
+        Literal l = parseLiteral(tn);
+        c->literals.push_back(l); 
+    }
+}
+
 Literal FolParser::parseLiteral(TreeNode* tn){
     Literal l;
     string s = tn->context;
-    if(s.size() == 0) cout<<"empty literal!!"<<endl;
+    if(s.size() == 0) cout<<"Error! empty literal!!"<<endl;
     switch(tn->op){
         case OP_DEF:
             l.istrue = true;
@@ -307,7 +357,7 @@ Literal FolParser::parseLiteral(TreeNode* tn){
             l.istrue = false;
             break;
         default:
-            cout<<"wrong literal!!"<<endl;
+            cout<<"Error! wrong literal!!"<<endl;
             break;
     }
     for(int i= 0; i< s.size(); ++i){
@@ -333,46 +383,46 @@ Literal FolParser::parseLiteral(TreeNode* tn){
 
 
 // For testing
-int main(){
-    /*
-        read file
-        */
-    ifstream t("./test.txt");
-    std::vector<string> folkb, folq;
+// int main(){
+//     /*
+//         read file
+//         */
+//     ifstream t("./test.txt");
+//     std::vector<string> folkb, folq;
     
-    /*
-        save the lines of kb and query
-        */
-    int lines_kb, lines_q;
-    string s_lines_kb, s_lines_q;
+//     /*
+//         save the lines of kb and query
+//         */
+//     int lines_kb, lines_q;
+//     string s_lines_kb, s_lines_q;
     
-    if(!getline(t, s_lines_q)) return 1;
-    lines_q =stoi(s_lines_q);
+//     if(!getline(t, s_lines_q)) return 1;
+//     lines_q =stoi(s_lines_q);
     
-    folq.reserve(lines_q);
-    for(int i = 0; i<lines_q; ++i){
-        string temp_s;
-        getline(t, temp_s);
-        folq.push_back(temp_s);
-    }
+//     folq.reserve(lines_q);
+//     for(int i = 0; i<lines_q; ++i){
+//         string temp_s;
+//         getline(t, temp_s);
+//         folq.push_back(temp_s);
+//     }
     
-    getline(t, s_lines_kb);
-    lines_kb =stoi(s_lines_kb);
+//     getline(t, s_lines_kb);
+//     lines_kb =stoi(s_lines_kb);
     
-    folkb.reserve(lines_kb);
-    for(int i = 0; i<lines_kb; ++i){
-        string temp_s;
-        getline(t, temp_s);
-        folkb.push_back(temp_s);
-    }
+//     folkb.reserve(lines_kb);
+//     for(int i = 0; i<lines_kb; ++i){
+//         string temp_s;
+//         getline(t, temp_s);
+//         folkb.push_back(temp_s);
+//     }
     
-    /*
-        let it be parsed into defined cnf structs
-        */
-    FolParser *parser = new FolParser(folkb,folq);
-    // KB kb = parser->getKB();
-    // vector<Clause> queries = parser->getQuery();
+//     /*
+//         let it be parsed into defined cnf structs
+//         */
+//     FolParser *parser = new FolParser(folkb,folq);
+//     KB kb = parser->getKB();
+//     vector<Clause> queries = parser->getQuery();
     
 
-    return 0;
-}
+//     return 0;
+// }

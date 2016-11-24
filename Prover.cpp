@@ -5,16 +5,34 @@
 using namespace std;
 
 
-bool unifiable(Literal l1, Literal l2, unordered_map<int, Argument> &sub){
-    
-    return false;
+bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
+    if(l1.arguments.size()!= l2.arguments.size()){
+        #ifdef DEBUG
+            cout<<l1.predicate<<"ERROR! argument count inconsistency"<<endl;    //  impossible to have same predicate name with different argument number.
+        #endif
+    }
+    for(int i = 0; i< l1.arguments.size(); ++i){
+        if(l1.arguments[i].isvariable && l2.arguments[i].isvariable){
+            
+        }else if(l1.arguments[i].isvariable || l2.arguments[i].isvariable){
+            
+        }else if(l1.arguments[i].id != l2.arguments[i].id){
+            return false;       // Constant mismatch, fail to unify
+        }
+    }
+    return true;
 }
 
-void unify(Clause c1, Clause c2, unordered_map<int, Argument> &sub){
+void unify(Clause c1, Clause c2, unordered_map<string, Argument> &sub){
     
 }
 
 void deduct(Clause &c, int pos){
+    if(pos >= c.literals.size()){
+        #ifdef DEBUG
+            cout<<"ERROR! deduction index exceeds"<<endl;    //  should be impossible.
+        #endif
+    }
     c.literals.erase(c.literals.begin()+pos);
 }
 
@@ -49,24 +67,35 @@ void tellKB(KB &kb, const Clause &c){
 /*  looks like a backward chaining pattern*/
 bool query(KB &kb, Clause qc){
     vector<int> toquery;
+    int ind_qc = 0;
     for(Literal ql : qc.literals){
-        if(kb.index.find(ql.predicate) == kb.index.end()) continue;
+        if(kb.index.find(ql.predicate) == kb.index.end()) continue;             // cannot find same predicate, abort
         
         Mapping mq = kb.index[ql.predicate];
         for(int i  = 0; i< mq.size;++i){
-            if(qc.composition.find(mq.clauseind[i]) != qc.composition.end()) continue;   // this clause is already used during the construction of qc.
+            if(qc.composition.find(mq.clauseind[i]) != qc.composition.end()){
+                continue;       // this clause is already used during the construction of qc.
+            }
             Clause ci(kb.clauses[mq.clauseind[i]]);
+            if(ql.istrue == ci.literals[mq.clausepos[i]].istrue){
+                // #ifdef DEBUG
+                // cout<<"ql: "<<ql.predicate<<" ci."<<i<<": "<<ci.literals[mq.clausepos[i]].predicate<<endl;
+                // #endif
+                continue;
+            }
             // check if unifiable
-            unordered_map<int, Argument> sub;
+            unordered_map<string, Argument> sub;
             if(unifiable(ql, ci.literals[mq.clausepos[i]],sub)){
                 Clause cq(qc);
-                deduct(cq, i);
+                unify(cq, ci, sub);
+                deduct(cq, ind_qc);
                 deduct(ci, mq.clausepos[i]);           // deduct the opposite literal from the clauses.
                 if(concatenate(cq, ci)) return true;    // add ci into cq.    if nothing left, the query succeeds.
                 toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
                 tellKB(kb, cq);                         // put new clause back to kb.
             }
         }
+        ++ind_qc;
     }
     for(int i : toquery){
         if(query(kb, kb.clauses[i])) return true;
@@ -78,7 +107,7 @@ int main(){
     /*
         read file
         */
-    ifstream t("../test.txt");
+    ifstream t("./test.txt");
     std::vector<string> folkb, folq;
     
     /*
@@ -120,7 +149,7 @@ int main(){
     ofstream output("output.txt");
     for(Clause c : queries){
         if(query(kb, c)) output<<"TRUE"<<endl;
-        else output<<"END"<<endl;
+        else output<<"FALSE"<<endl;
     }
     output.close();
     
