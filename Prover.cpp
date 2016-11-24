@@ -93,6 +93,7 @@ bool query(KB &kb, Clause qc){
                 if(concatenate(cq, ci)) return true;    // add ci into cq.    if nothing left, the query succeeds.
                 toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
                 tellKB(kb, cq);                         // put new clause back to kb.
+                renameVariable(kb, kb.size()-1);
             }
         }
         ++ind_qc;
@@ -101,6 +102,21 @@ bool query(KB &kb, Clause qc){
         if(query(kb, kb.clauses[i])) return true;
     }
     return false;
+}
+
+void renameVariable(KB &kb, int index){
+    unordered_map<string,string> save;
+    for(auto l = kb.clauses[index].literals.begin(); l != kb.clauses[index].literals.end(); ++l){
+        for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
+            if(!a->isvariable) continue;
+            if(save.find(a->id) != save.end()) a->id = save[a->id];
+            else{
+                string newName = to_string(index)+"."+to_string(save.size());
+                save.insert({a->id, newName});
+                a->id = newName;
+            }
+        }
+    }
 }
 
 int main(){
@@ -143,12 +159,16 @@ int main(){
     KB kb = parser->getKB();
     vector<Clause> queries = parser->getQuery();
     
+    for(int i = 0; i < kb.clauses.size(); ++i){
+        renameVariable(kb, i);
+    }
     /*
         write to output files
         */
     ofstream output("output.txt");
     for(Clause c : queries){
-        if(query(kb, c)) output<<"TRUE"<<endl;
+        KB temp_kb(kb);
+        if(query(temp_kb, c)) output<<"TRUE"<<endl;
         else output<<"FALSE"<<endl;
     }
     output.close();
