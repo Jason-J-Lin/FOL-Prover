@@ -6,21 +6,25 @@
 
 using namespace std;
 
+#define DEBUG_PARSE         // control log
+
 FolParser::FolParser(vector<string> folkb, vector<string> folq){
     for(string s : folkb){
         s.erase(remove(s.begin(),s.end(),' '), s.end());
+        #ifdef DEBUG_PARSE
         cout<<"--------------parsing "<<s<<endl;
+        #endif
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
         parse(s, head);
         convert(head);
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"--------------archiving"<<endl;
         #endif
         archiveKB(head, NULL);
         delete head;
     }
-    #ifdef DEBUG
+    #ifdef DEBUG_PARSE
     cout<<"Queries"<<endl;
     #endif
     for(string s : folq){
@@ -31,13 +35,17 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         parse(s, head);
         negate(head);
         convert(head);
-        cout<<"--"<<head->context<<endl;
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"--------------archiving"<<endl;
         #endif
         archiveQ(head, NULL);
         delete head;
     }
+    #ifdef DEBUG_PARSE
+    cout<<"**********************"<<endl;
+    cout<<"***Parsing complete***"<<endl;
+    cout<<"**********************"<<endl;
+    #endif
 }
 
 FolParser::~FolParser(){
@@ -71,7 +79,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
         start with not (only need to look at the first char)
     */ 
     if(s.at(tn->l+1)=='~'){
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"not "<<tn->l<<" "<<tn->r<<endl;
         #endif
         tn->op = OP_NOT;
@@ -87,7 +95,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
         if(s[i] == ' ') continue;   // or to eliminate all space together?
         if(leftsemi == 0){
             if(s[i] == '&'){
-                #ifdef DEBUG
+                #ifdef DEBUG_PARSE
                 cout<<"and"<<endl;
                 #endif
                 tn->op = OP_AND;
@@ -102,7 +110,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
                 parse(s, tn2);
                 return true;
             }else if(s[i] == '|'){
-                #ifdef DEBUG
+                #ifdef DEBUG_PARSE
                 cout<<"or"<<endl;
                 #endif
                 tn->op = OP_OR;
@@ -117,7 +125,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
                 parse(s, tn2);
                 return true;
             }else if(s[i] == '='){
-                #ifdef DEBUG
+                #ifdef DEBUG_PARSE
                 cout<<"imply"<<endl;
                 #endif
                 tn->op = OP_IMPLY;
@@ -143,14 +151,14 @@ bool FolParser::parse(string &s, TreeNode* tn){
     tn->left = NULL;
     tn->right = NULL;
     tn->context = s.substr(tn->l, tn->r - tn->l+1);
-    #ifdef DEBUG
+    #ifdef DEBUG_PARSE
     cout<<"def: "<<tn->context<<endl;
     #endif
     return true;
 }
 
 bool FolParser::convert(TreeNode*& tn){
-    #ifdef DEBUG
+    #ifdef DEBUG_PARSE
     cout<<"--------------converting"<<endl;
     #endif
     impElim(tn);
@@ -160,22 +168,19 @@ bool FolParser::convert(TreeNode*& tn){
 }
 
 void FolParser::negate(TreeNode*& tn){
-    #ifdef DEBUG
+    #ifdef DEBUG_PARSE
     cout<<"--------------negating"<<endl;
     #endif
     TreeNode* newHead = new TreeNode();
     newHead->op = OP_NOT;
     newHead->left = tn;
-    #ifdef DEBUG
-    cout<<"--"<<newHead->left->context<<endl;
-    #endif
     tn = newHead;                    //hey! passing the reference of a pointer
 }
 
 void FolParser::impElim(TreeNode* tn){
     if(!tn) return;
     if(tn->op == OP_IMPLY){
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"imply eliminated"<<endl;
         #endif
         TreeNode* tempNot = new TreeNode();
@@ -192,7 +197,7 @@ void FolParser::notInwd(TreeNode*& tn){
     if(!tn) return;
     if(tn->op == OP_NOT){
         if(tn->left->op == OP_NOT){
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"double not eliminated"<<endl;
             #endif
             // TreeNode *tdel = tn;                  // Node Creating
@@ -200,7 +205,7 @@ void FolParser::notInwd(TreeNode*& tn){
             
             // delete tdel, tdel->left;   // Many nodes to be deleted!!
         }else if(tn->left->op == OP_AND){
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"not into and"<<endl;
             #endif
             TreeNode *tempNotLeft = new TreeNode(), *tempNotRight = new TreeNode();       // Node Creating
@@ -212,7 +217,7 @@ void FolParser::notInwd(TreeNode*& tn){
             tn->left = tempNotLeft;
             tn->right = tempNotRight;
         }else if(tn->left->op == OP_OR){
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"not into or"<<endl;
             #endif
             TreeNode *tempNotLeft = new TreeNode(), *tempNotRight = new TreeNode();       // Node Creating
@@ -224,7 +229,7 @@ void FolParser::notInwd(TreeNode*& tn){
             tn->left = tempNotLeft;
             tn->right = tempNotRight;            
         }else if(tn->left->op == OP_DEF){  // must be default
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"not into def"<<endl;
             #endif
             tn->context = tn->left->context;
@@ -246,7 +251,7 @@ void FolParser::andDstb(TreeNode* tn){
     if(!tn) return;
     if(tn->op == OP_OR){
         if(tn->left->op == OP_AND){
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"left and distributed"<<endl;
             #endif
             tn->op = OP_AND;
@@ -258,7 +263,7 @@ void FolParser::andDstb(TreeNode* tn){
             tn->left->right = tn->right;
             tn->right = tempRight;
         }else if(tn->right->op == OP_AND){
-            #ifdef DEBUG
+            #ifdef DEBUG_PARSE
             cout<<"left and distributed"<<endl;
             #endif
             tn->op = OP_AND;
@@ -283,7 +288,7 @@ void FolParser::archiveKB(TreeNode* tn, Clause* c){
         return;
     }
     if(!c){
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"adding clause to KB"<<endl;
         #endif
         c = new Clause();
@@ -323,7 +328,7 @@ void FolParser::archiveQ(TreeNode* tn, Clause* c){
         return;
     }
     if(!c){
-        #ifdef DEBUG
+        #ifdef DEBUG_PARSE
         cout<<"adding clause to Q"<<endl;
         #endif
         c = new Clause();
@@ -337,7 +342,7 @@ void FolParser::archiveQ(TreeNode* tn, Clause* c){
         return;
     }
     if(tn->op == OP_NOT || tn->op == OP_DEF){
-        // #ifdef DEBUG
+        // #ifdef DEBUG_PARSE
         // cout<<"******"<<tn->op<<endl;
         // #endif
         Literal l = parseLiteral(tn);

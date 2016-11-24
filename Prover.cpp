@@ -4,32 +4,59 @@
 
 using namespace std;
 
+#define DEBUG_PROVE
 
 bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
     if(l1.arguments.size()!= l2.arguments.size()){
-        #ifdef DEBUG
+        #ifdef DEBUG_PROVE
             cout<<l1.predicate<<"ERROR! argument count inconsistency"<<endl;    //  impossible to have same predicate name with different argument number.
         #endif
     }
     for(int i = 0; i< l1.arguments.size(); ++i){
+        if(sub.find(l1.arguments[i].id)!=sub.end()) l1.arguments[i] = sub[l1.arguments[i].id];
+        if(sub.find(l2.arguments[i].id)!=sub.end()) l2.arguments[i] = sub[l2.arguments[i].id];
         if(l1.arguments[i].isvariable && l2.arguments[i].isvariable){
-            
-        }else if(l1.arguments[i].isvariable || l2.arguments[i].isvariable){
-            
+            #ifdef DEBUG_UNIFY
+                cout<<"unifying vars: "<<l1.arguments[i].id<<" "<<l2.arguments[i].id<<endl;    //  impossible to have same predicate name with different argument number.
+            #endif
+            if(l2.arguments[i].id == l1.arguments[i].id) continue;
+            l2.arguments[i].id = l1.arguments[i].id;
+            sub.insert({l2.arguments[i].id, l1.arguments[i]});
+        }else if(l1.arguments[i].isvariable){
+            #ifdef DEBUG_UNIFY
+                cout<<"unifying var and const: "<<l1.arguments[i].id<<" "<<l2.arguments[i].id<<endl;    //  impossible to have same predicate name with different argument number.
+            #endif
+            sub.insert({l1.arguments[i].id, l2.arguments[i]});
+        }else if(l2.arguments[i].isvariable){
+            #ifdef DEBUG_UNIFY
+                cout<<"unifying const and var: "<<l1.arguments[i].id<<" "<<l2.arguments[i].id<<endl;    //  impossible to have same predicate name with different argument number.
+            #endif
+            sub.insert({l2.arguments[i].id, l1.arguments[i]});
         }else if(l1.arguments[i].id != l2.arguments[i].id){
             return false;       // Constant mismatch, fail to unify
         }
     }
+    // there may be many redundant links in 'sub', needs to resolute that
     return true;
 }
 
-void unify(Clause c1, Clause c2, unordered_map<string, Argument> &sub){
-    
+// add multiple elimination here, try it!
+void unify(Clause &c1, Clause &c2, unordered_map<string, Argument> &sub){
+    for(auto l = c1.literals.begin(); l!= c1.literals.end(); ++l){
+        for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
+            if(sub.find(a->id)!= sub.end()) *a = sub[a->id];
+        }
+    }
+    for(auto l = c2.literals.begin(); l!= c2.literals.end(); ++l){
+        for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
+            if(sub.find(a->id)!= sub.end()) *a = sub[a->id];
+        }
+    }
 }
 
 void deduct(Clause &c, int pos){
     if(pos >= c.literals.size()){
-        #ifdef DEBUG
+        #ifdef DEBUG_PROVE
             cout<<"ERROR! deduction index exceeds"<<endl;    //  should be impossible.
         #endif
     }
@@ -64,6 +91,21 @@ void tellKB(KB &kb, const Clause &c){
     }
 }
 
+void renameVariable(KB &kb, int index){
+    unordered_map<string,string> save;
+    for(auto l = kb.clauses[index].literals.begin(); l != kb.clauses[index].literals.end(); ++l){
+        for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
+            if(!a->isvariable) continue;
+            if(save.find(a->id) != save.end()) a->id = save[a->id];
+            else{
+                string newName = to_string(index)+"."+to_string(save.size());
+                save.insert({a->id, newName});
+                a->id = newName;
+            }
+        }
+    }
+}
+
 /*  looks like a backward chaining pattern*/
 bool query(KB &kb, Clause qc){
     vector<int> toquery;
@@ -78,45 +120,45 @@ bool query(KB &kb, Clause qc){
             }
             Clause ci(kb.clauses[mq.clauseind[i]]);
             if(ql.istrue == ci.literals[mq.clausepos[i]].istrue){
-                // #ifdef DEBUG
+                // #ifdef DEBUG_PROVE
                 // cout<<"ql: "<<ql.predicate<<" ci."<<i<<": "<<ci.literals[mq.clausepos[i]].predicate<<endl;
                 // #endif
                 continue;
             }
             // check if unifiable
             unordered_map<string, Argument> sub;
+            // #ifdef DEBUG_PROVE
+            //     cout<<"check unifiable: "<<l1.arguments[i].id<<" "<<l2.arguments[i].id<<endl;    //  impossible to have same predicate name with different argument number.
+            // #endif
             if(unifiable(ql, ci.literals[mq.clausepos[i]],sub)){
                 Clause cq(qc);
+                cq.composition.insert(mq.clauseind[i]);
                 unify(cq, ci, sub);
                 deduct(cq, ind_qc);
                 deduct(ci, mq.clausepos[i]);           // deduct the opposite literal from the clauses.
-                if(concatenate(cq, ci)) return true;    // add ci into cq.    if nothing left, the query succeeds.
+                if(concatenate(cq, ci)){
+                    #ifdef DEBUG_PROVE
+                        cout<<"****** proved! ******"<<endl;    //  impossible to have same predicate name with different argument number.
+                    #endif
+                    return true;    // add ci into cq.    if nothing left, the query succeeds.
+                }
                 toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
+                #ifdef DEBUG_PROVE
+                    cout<<"adding: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
+                #endif
                 tellKB(kb, cq);                         // put new clause back to kb.
-                renameVariable(kb, kb.size()-1);
+                renameVariable(kb, kb.clauses.size()-1);
             }
         }
         ++ind_qc;
     }
     for(int i : toquery){
+        #ifdef DEBUG_PROVE
+            cout<<"querying: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
+        #endif
         if(query(kb, kb.clauses[i])) return true;
     }
     return false;
-}
-
-void renameVariable(KB &kb, int index){
-    unordered_map<string,string> save;
-    for(auto l = kb.clauses[index].literals.begin(); l != kb.clauses[index].literals.end(); ++l){
-        for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
-            if(!a->isvariable) continue;
-            if(save.find(a->id) != save.end()) a->id = save[a->id];
-            else{
-                string newName = to_string(index)+"."+to_string(save.size());
-                save.insert({a->id, newName});
-                a->id = newName;
-            }
-        }
-    }
 }
 
 int main(){
