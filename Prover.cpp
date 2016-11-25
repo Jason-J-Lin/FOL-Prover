@@ -20,7 +20,7 @@ bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
                 cout<<"unifying vars: "<<l1.arguments[i].id<<" "<<l2.arguments[i].id<<endl;    //  impossible to have same predicate name with different argument number.
             #endif
             if(l2.arguments[i].id == l1.arguments[i].id) continue;
-            l2.arguments[i].id = l1.arguments[i].id;
+            // l2.arguments[i].id = l1.arguments[i].id;
             sub.insert({l2.arguments[i].id, l1.arguments[i]});
         }else if(l1.arguments[i].isvariable){
             #ifdef DEBUG_UNIFY
@@ -38,6 +38,22 @@ bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
     }
     // there may be many redundant links in 'sub', needs to resolute that
     return true;
+}
+
+void reduceSub(unordered_map<string, Argument> &sub){
+    bool changed = true;
+    while(changed){
+        changed = false;
+        for(auto it = sub.begin(); it!= sub.end(); ++it){
+            if(sub.find(it->second.id)!= sub.end()){
+                #ifdef DEBUG_PROVE
+                    cout<<"reducing sub: "<<it->first<<"->"<<it->second.id<<endl;
+                #endif
+                it->second = sub[it->second.id];
+                changed = true;
+            }
+        }
+    }
 }
 
 // add multiple elimination here, try it!
@@ -71,7 +87,7 @@ void deduct(Clause &c, int pos){
 bool concatenate(Clause &c1, Clause &c2){
     if(c1.literals.empty()&&c2.literals.empty()) return true;
     c1.literals.insert(c1.literals.end(), c2.literals.begin(), c2.literals.end());
-    c1.composition.insert(c2.composition.begin(), c2.composition.end());
+    // c1.composition.insert(c2.composition.begin(), c2.composition.end());
     return false;
 }
 
@@ -144,14 +160,20 @@ bool query(KB &kb, Clause qc){
             if(unifiable(ql, ci.literals[mq.clausepos[i]],sub)){
                 Clause cq(qc);
                 #ifdef DEBUG_PROVE
+                    cout<<"--------------"<<endl;
                     cout<<"resolving: ";
                     printClause(cq);
-                    cout<<"with ";
+                    cout<<"with  ";
                     printClause(ci);
                     cout<<endl;
                 #endif
-                cq.composition.insert(mq.clauseind[i]);
+                // cq.composition.insert(mq.clauseind[i]);
                 unify(cq, ci, sub);
+                #ifdef DEBUG_PROVE
+                    cout<<"subs: ";
+                    for(auto it = sub.begin(); it!=sub.end(); ++it) cout<<it->first<<"->"<<it->second.id<<", ";
+                    cout<<endl;
+                #endif
                 deduct(cq, ind_qc);
                 deduct(ci, mq.clausepos[i]);           // deduct the opposite literal from the clauses.
                 if(concatenate(cq, ci)){
@@ -161,13 +183,13 @@ bool query(KB &kb, Clause qc){
                     return true;    // add ci into cq.    if nothing left, the query succeeds.
                 }
                 toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
-                #ifdef DEBUG_PROVE
-                    cout<<"adding: ";    //  impossible to have same predicate name with different argument number.
-                    printClause(cq);
-                    cout<<endl;
-                #endif
                 tellKB(kb, cq);                         // put new clause back to kb.
                 renameVariable(kb, kb.clauses.size()-1);
+                #ifdef DEBUG_PROVE
+                    cout<<"adding: ";    //  impossible to have same predicate name with different argument number.
+                    printClause(kb.clauses.back());
+                    cout<<endl;
+                #endif
             }
         }
         ++ind_qc;
@@ -185,7 +207,7 @@ int main(){
     /*
         read file
         */
-    ifstream t("./test5.txt");
+    ifstream t("./test_and.txt");
     std::vector<string> folkb, folq;
     
     /*

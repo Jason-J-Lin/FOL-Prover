@@ -74,6 +74,7 @@ protected:
     void impElim(TreeNode* tn);
     void notInwd(TreeNode*& tn);
     void andDstb(TreeNode* tn);
+    bool andDstbRecur(TreeNode* tn);
     void archiveKB(TreeNode* tn, Clause* c);
     void archiveQ(TreeNode* tn, Clause* c);
     Literal parseLiteral(TreeNode* tn);

@@ -1,0 +1,1019 @@
+--------------parsing F(Bob)
+--------------parsing H(John)
+--------------parsing (~H(Alice))
+--------------parsing (~H(John))
+--------------parsing G(Bob)
+--------------parsing G(Alice)
+--------------
+resolving: ~F(Bob,)  with  F(Bob,)  
+subs: 
+****** proved! ******
+--------------
+resolving: ~H(John,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->John, 
+adding: ~A(John,)  
+--------------
+resolving: ~H(John,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->John, 
+adding: ~G(John,)  
+--------------
+resolving: ~H(John,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->John, 
+adding: ~R(John,)  
+querying: 14
+--------------
+resolving: ~A(John,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->John, 
+adding: ~B(John,17.0,)  ~C(John,17.0,)  
+querying: 17
+--------------
+resolving: ~B(John,17.0,)  ~C(John,17.0,)  with  B(John,Alice,)  
+subs: 17.0->Alice, 
+adding: ~C(John,Alice,)  
+--------------
+resolving: ~B(John,17.0,)  ~C(John,17.0,)  with  B(John,Bob,)  
+subs: 17.0->Bob, 
+adding: ~C(John,Bob,)  
+--------------
+resolving: ~B(John,17.0,)  ~C(John,17.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->17.0, 5.0->John, 
+adding: ~B(John,20.0,)  ~D(John,20.0,)  ~F(20.0,)  
+querying: 18
+--------------
+resolving: ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~D(John,Alice,)  ~F(Alice,)  
+querying: 21
+--------------
+resolving: ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~F(Alice,)  
+--------------
+resolving: ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~D(John,Alice,)  ~H(Alice,)  
+querying: 22
+--------------
+resolving: ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~H(Alice,)  
+querying: 24
+--------------
+resolving: ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~A(Alice,)  
+--------------
+resolving: ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~G(Alice,)  
+--------------
+resolving: ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~R(Alice,)  
+querying: 25
+--------------
+resolving: ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,28.0,)  ~C(Alice,28.0,)  
+querying: 28
+--------------
+resolving: ~B(Alice,28.0,)  ~C(Alice,28.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->28.0, 5.0->Alice, 
+adding: ~B(Alice,29.0,)  ~D(Alice,29.0,)  ~F(29.0,)  
+querying: 29
+--------------
+resolving: ~B(Alice,29.0,)  ~D(Alice,29.0,)  ~F(29.0,)  with  F(Bob,)  
+subs: 29.0->Bob, 
+adding: ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,29.0,)  ~D(Alice,29.0,)  ~F(29.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->29.0, 
+adding: ~B(Alice,31.0,)  ~D(Alice,31.0,)  ~H(31.0,)  
+querying: 30
+querying: 31
+--------------
+resolving: ~B(Alice,31.0,)  ~D(Alice,31.0,)  ~H(31.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->31.0, 
+adding: ~B(Alice,32.0,)  ~D(Alice,32.0,)  ~A(32.0,)  
+--------------
+resolving: ~B(Alice,31.0,)  ~D(Alice,31.0,)  ~H(31.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->31.0, 
+adding: ~B(Alice,33.0,)  ~D(Alice,33.0,)  ~G(33.0,)  
+--------------
+resolving: ~B(Alice,31.0,)  ~D(Alice,31.0,)  ~H(31.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->31.0, 
+adding: ~B(Alice,34.0,)  ~D(Alice,34.0,)  ~R(34.0,)  
+querying: 32
+--------------
+resolving: ~B(Alice,32.0,)  ~D(Alice,32.0,)  ~A(32.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->32.0, 
+adding: ~B(Alice,35.0,)  ~D(Alice,35.0,)  ~B(35.0,35.1,)  ~C(35.0,35.1,)  
+querying: 35
+--------------
+resolving: ~B(Alice,35.0,)  ~D(Alice,35.0,)  ~B(35.0,35.1,)  ~C(35.0,35.1,)  with  B(John,Alice,)  
+subs: 35.1->Alice, 35.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,35.0,)  ~D(Alice,35.0,)  ~B(35.0,35.1,)  ~C(35.0,35.1,)  with  B(John,Bob,)  
+subs: 35.1->Bob, 35.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,35.0,)  ~D(Alice,35.0,)  ~B(35.0,35.1,)  ~C(35.0,35.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->35.1, 5.0->35.0, 
+adding: ~B(Alice,38.0,)  ~D(Alice,38.0,)  ~B(38.0,38.1,)  ~D(38.0,38.1,)  ~F(38.1,)  
+querying: 36
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 39
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 40
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 42
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 43
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,46.0,)  ~C(Alice,46.0,)  
+querying: 46
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,46.0,)  ~C(Alice,46.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->46.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,47.0,)  ~D(Alice,47.0,)  ~F(47.0,)  
+querying: 47
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,47.0,)  ~D(Alice,47.0,)  ~F(47.0,)  with  F(Bob,)  
+subs: 47.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,47.0,)  ~D(Alice,47.0,)  ~F(47.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->47.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,49.0,)  ~D(Alice,49.0,)  ~H(49.0,)  
+querying: 48
+querying: 49
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,49.0,)  ~D(Alice,49.0,)  ~H(49.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->49.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,50.0,)  ~D(Alice,50.0,)  ~A(50.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,49.0,)  ~D(Alice,49.0,)  ~H(49.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->49.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,51.0,)  ~D(Alice,51.0,)  ~G(51.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,49.0,)  ~D(Alice,49.0,)  ~H(49.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->49.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,52.0,)  ~D(Alice,52.0,)  ~R(52.0,)  
+querying: 50
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,50.0,)  ~D(Alice,50.0,)  ~A(50.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->50.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,53.0,)  ~D(Alice,53.0,)  ~B(53.0,53.1,)  ~C(53.0,53.1,)  
+querying: 53
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,53.0,)  ~D(Alice,53.0,)  ~B(53.0,53.1,)  ~C(53.0,53.1,)  with  B(John,Alice,)  
+subs: 53.1->Alice, 53.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,53.0,)  ~D(Alice,53.0,)  ~B(53.0,53.1,)  ~C(53.0,53.1,)  with  B(John,Bob,)  
+subs: 53.1->Bob, 53.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,53.0,)  ~D(Alice,53.0,)  ~B(53.0,53.1,)  ~C(53.0,53.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->53.1, 5.0->53.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,56.0,)  ~D(Alice,56.0,)  ~B(56.0,56.1,)  ~D(56.0,56.1,)  ~F(56.1,)  
+querying: 54
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 57
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 58
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 60
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 61
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,64.0,)  ~C(Alice,64.0,)  
+querying: 64
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,64.0,)  ~C(Alice,64.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->64.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,65.0,)  ~D(Alice,65.0,)  ~F(65.0,)  
+querying: 65
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,65.0,)  ~D(Alice,65.0,)  ~F(65.0,)  with  F(Bob,)  
+subs: 65.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,65.0,)  ~D(Alice,65.0,)  ~F(65.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->65.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,67.0,)  ~D(Alice,67.0,)  ~H(67.0,)  
+querying: 66
+querying: 67
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,67.0,)  ~D(Alice,67.0,)  ~H(67.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->67.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,68.0,)  ~D(Alice,68.0,)  ~A(68.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,67.0,)  ~D(Alice,67.0,)  ~H(67.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->67.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,69.0,)  ~D(Alice,69.0,)  ~G(69.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,67.0,)  ~D(Alice,67.0,)  ~H(67.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->67.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,70.0,)  ~D(Alice,70.0,)  ~R(70.0,)  
+querying: 68
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,68.0,)  ~D(Alice,68.0,)  ~A(68.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->68.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,71.0,)  ~D(Alice,71.0,)  ~B(71.0,71.1,)  ~C(71.0,71.1,)  
+querying: 71
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,71.0,)  ~D(Alice,71.0,)  ~B(71.0,71.1,)  ~C(71.0,71.1,)  with  B(John,Alice,)  
+subs: 71.1->Alice, 71.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,71.0,)  ~D(Alice,71.0,)  ~B(71.0,71.1,)  ~C(71.0,71.1,)  with  B(John,Bob,)  
+subs: 71.1->Bob, 71.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,71.0,)  ~D(Alice,71.0,)  ~B(71.0,71.1,)  ~C(71.0,71.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->71.1, 5.0->71.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,74.0,)  ~D(Alice,74.0,)  ~B(74.0,74.1,)  ~D(74.0,74.1,)  ~F(74.1,)  
+querying: 72
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 75
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 76
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 78
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 79
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,82.0,)  ~C(Alice,82.0,)  
+querying: 82
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,82.0,)  ~C(Alice,82.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->82.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,83.0,)  ~D(Alice,83.0,)  ~F(83.0,)  
+querying: 83
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,83.0,)  ~D(Alice,83.0,)  ~F(83.0,)  with  F(Bob,)  
+subs: 83.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,83.0,)  ~D(Alice,83.0,)  ~F(83.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->83.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,85.0,)  ~D(Alice,85.0,)  ~H(85.0,)  
+querying: 84
+querying: 85
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,85.0,)  ~D(Alice,85.0,)  ~H(85.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->85.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,86.0,)  ~D(Alice,86.0,)  ~A(86.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,85.0,)  ~D(Alice,85.0,)  ~H(85.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->85.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,87.0,)  ~D(Alice,87.0,)  ~G(87.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,85.0,)  ~D(Alice,85.0,)  ~H(85.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->85.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,88.0,)  ~D(Alice,88.0,)  ~R(88.0,)  
+querying: 86
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,86.0,)  ~D(Alice,86.0,)  ~A(86.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->86.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,89.0,)  ~D(Alice,89.0,)  ~B(89.0,89.1,)  ~C(89.0,89.1,)  
+querying: 89
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,89.0,)  ~D(Alice,89.0,)  ~B(89.0,89.1,)  ~C(89.0,89.1,)  with  B(John,Alice,)  
+subs: 89.1->Alice, 89.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,89.0,)  ~D(Alice,89.0,)  ~B(89.0,89.1,)  ~C(89.0,89.1,)  with  B(John,Bob,)  
+subs: 89.1->Bob, 89.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,89.0,)  ~D(Alice,89.0,)  ~B(89.0,89.1,)  ~C(89.0,89.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->89.1, 5.0->89.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,92.0,)  ~D(Alice,92.0,)  ~B(92.0,92.1,)  ~D(92.0,92.1,)  ~F(92.1,)  
+querying: 90
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 93
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 94
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 96
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 97
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,100.0,)  ~C(Alice,100.0,)  
+querying: 100
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,100.0,)  ~C(Alice,100.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->100.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,101.0,)  ~D(Alice,101.0,)  ~F(101.0,)  
+querying: 101
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,101.0,)  ~D(Alice,101.0,)  ~F(101.0,)  with  F(Bob,)  
+subs: 101.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,101.0,)  ~D(Alice,101.0,)  ~F(101.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->101.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,103.0,)  ~D(Alice,103.0,)  ~H(103.0,)  
+querying: 102
+querying: 103
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,103.0,)  ~D(Alice,103.0,)  ~H(103.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->103.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,104.0,)  ~D(Alice,104.0,)  ~A(104.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,103.0,)  ~D(Alice,103.0,)  ~H(103.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->103.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,105.0,)  ~D(Alice,105.0,)  ~G(105.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,103.0,)  ~D(Alice,103.0,)  ~H(103.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->103.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,106.0,)  ~D(Alice,106.0,)  ~R(106.0,)  
+querying: 104
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,104.0,)  ~D(Alice,104.0,)  ~A(104.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->104.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,107.0,)  ~D(Alice,107.0,)  ~B(107.0,107.1,)  ~C(107.0,107.1,)  
+querying: 107
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,107.0,)  ~D(Alice,107.0,)  ~B(107.0,107.1,)  ~C(107.0,107.1,)  with  B(John,Alice,)  
+subs: 107.1->Alice, 107.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,107.0,)  ~D(Alice,107.0,)  ~B(107.0,107.1,)  ~C(107.0,107.1,)  with  B(John,Bob,)  
+subs: 107.1->Bob, 107.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,107.0,)  ~D(Alice,107.0,)  ~B(107.0,107.1,)  ~C(107.0,107.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->107.1, 5.0->107.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,110.0,)  ~D(Alice,110.0,)  ~B(110.0,110.1,)  ~D(110.0,110.1,)  ~F(110.1,)  
+querying: 108
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 111
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 112
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 114
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 115
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,118.0,)  ~C(Alice,118.0,)  
+querying: 118
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,118.0,)  ~C(Alice,118.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->118.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,119.0,)  ~D(Alice,119.0,)  ~F(119.0,)  
+querying: 119
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,119.0,)  ~D(Alice,119.0,)  ~F(119.0,)  with  F(Bob,)  
+subs: 119.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,119.0,)  ~D(Alice,119.0,)  ~F(119.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->119.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,121.0,)  ~D(Alice,121.0,)  ~H(121.0,)  
+querying: 120
+querying: 121
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,121.0,)  ~D(Alice,121.0,)  ~H(121.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->121.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,122.0,)  ~D(Alice,122.0,)  ~A(122.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,121.0,)  ~D(Alice,121.0,)  ~H(121.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->121.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,123.0,)  ~D(Alice,123.0,)  ~G(123.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,121.0,)  ~D(Alice,121.0,)  ~H(121.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->121.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,124.0,)  ~D(Alice,124.0,)  ~R(124.0,)  
+querying: 122
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,122.0,)  ~D(Alice,122.0,)  ~A(122.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->122.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,125.0,)  ~D(Alice,125.0,)  ~B(125.0,125.1,)  ~C(125.0,125.1,)  
+querying: 125
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,125.0,)  ~D(Alice,125.0,)  ~B(125.0,125.1,)  ~C(125.0,125.1,)  with  B(John,Alice,)  
+subs: 125.1->Alice, 125.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,125.0,)  ~D(Alice,125.0,)  ~B(125.0,125.1,)  ~C(125.0,125.1,)  with  B(John,Bob,)  
+subs: 125.1->Bob, 125.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,125.0,)  ~D(Alice,125.0,)  ~B(125.0,125.1,)  ~C(125.0,125.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->125.1, 5.0->125.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,128.0,)  ~D(Alice,128.0,)  ~B(128.0,128.1,)  ~D(128.0,128.1,)  ~F(128.1,)  
+querying: 126
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 129
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 130
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 132
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 133
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,136.0,)  ~C(Alice,136.0,)  
+querying: 136
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,136.0,)  ~C(Alice,136.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->136.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,137.0,)  ~D(Alice,137.0,)  ~F(137.0,)  
+querying: 137
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,137.0,)  ~D(Alice,137.0,)  ~F(137.0,)  with  F(Bob,)  
+subs: 137.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,137.0,)  ~D(Alice,137.0,)  ~F(137.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->137.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,139.0,)  ~D(Alice,139.0,)  ~H(139.0,)  
+querying: 138
+querying: 139
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,139.0,)  ~D(Alice,139.0,)  ~H(139.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->139.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,140.0,)  ~D(Alice,140.0,)  ~A(140.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,139.0,)  ~D(Alice,139.0,)  ~H(139.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->139.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,141.0,)  ~D(Alice,141.0,)  ~G(141.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,139.0,)  ~D(Alice,139.0,)  ~H(139.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->139.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,142.0,)  ~D(Alice,142.0,)  ~R(142.0,)  
+querying: 140
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,140.0,)  ~D(Alice,140.0,)  ~A(140.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->140.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,143.0,)  ~D(Alice,143.0,)  ~B(143.0,143.1,)  ~C(143.0,143.1,)  
+querying: 143
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,143.0,)  ~D(Alice,143.0,)  ~B(143.0,143.1,)  ~C(143.0,143.1,)  with  B(John,Alice,)  
+subs: 143.1->Alice, 143.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,143.0,)  ~D(Alice,143.0,)  ~B(143.0,143.1,)  ~C(143.0,143.1,)  with  B(John,Bob,)  
+subs: 143.1->Bob, 143.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,143.0,)  ~D(Alice,143.0,)  ~B(143.0,143.1,)  ~C(143.0,143.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->143.1, 5.0->143.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,146.0,)  ~D(Alice,146.0,)  ~B(146.0,146.1,)  ~D(146.0,146.1,)  ~F(146.1,)  
+querying: 144
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 147
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 148
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 150
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 151
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,154.0,)  ~C(Alice,154.0,)  
+querying: 154
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,154.0,)  ~C(Alice,154.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->154.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,155.0,)  ~D(Alice,155.0,)  ~F(155.0,)  
+querying: 155
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,155.0,)  ~D(Alice,155.0,)  ~F(155.0,)  with  F(Bob,)  
+subs: 155.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,155.0,)  ~D(Alice,155.0,)  ~F(155.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->155.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,157.0,)  ~D(Alice,157.0,)  ~H(157.0,)  
+querying: 156
+querying: 157
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,157.0,)  ~D(Alice,157.0,)  ~H(157.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->157.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,158.0,)  ~D(Alice,158.0,)  ~A(158.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,157.0,)  ~D(Alice,157.0,)  ~H(157.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->157.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,159.0,)  ~D(Alice,159.0,)  ~G(159.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,157.0,)  ~D(Alice,157.0,)  ~H(157.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->157.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,160.0,)  ~D(Alice,160.0,)  ~R(160.0,)  
+querying: 158
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,158.0,)  ~D(Alice,158.0,)  ~A(158.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->158.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,161.0,)  ~D(Alice,161.0,)  ~B(161.0,161.1,)  ~C(161.0,161.1,)  
+querying: 161
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,161.0,)  ~D(Alice,161.0,)  ~B(161.0,161.1,)  ~C(161.0,161.1,)  with  B(John,Alice,)  
+subs: 161.1->Alice, 161.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,161.0,)  ~D(Alice,161.0,)  ~B(161.0,161.1,)  ~C(161.0,161.1,)  with  B(John,Bob,)  
+subs: 161.1->Bob, 161.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,161.0,)  ~D(Alice,161.0,)  ~B(161.0,161.1,)  ~C(161.0,161.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->161.1, 5.0->161.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,164.0,)  ~D(Alice,164.0,)  ~B(164.0,164.1,)  ~D(164.0,164.1,)  ~F(164.1,)  
+querying: 162
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 165
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 166
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 168
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 169
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,172.0,)  ~C(Alice,172.0,)  
+querying: 172
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,172.0,)  ~C(Alice,172.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->172.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,173.0,)  ~D(Alice,173.0,)  ~F(173.0,)  
+querying: 173
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,173.0,)  ~D(Alice,173.0,)  ~F(173.0,)  with  F(Bob,)  
+subs: 173.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,173.0,)  ~D(Alice,173.0,)  ~F(173.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->173.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,175.0,)  ~D(Alice,175.0,)  ~H(175.0,)  
+querying: 174
+querying: 175
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,175.0,)  ~D(Alice,175.0,)  ~H(175.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->175.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,176.0,)  ~D(Alice,176.0,)  ~A(176.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,175.0,)  ~D(Alice,175.0,)  ~H(175.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->175.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,177.0,)  ~D(Alice,177.0,)  ~G(177.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,175.0,)  ~D(Alice,175.0,)  ~H(175.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->175.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,178.0,)  ~D(Alice,178.0,)  ~R(178.0,)  
+querying: 176
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,176.0,)  ~D(Alice,176.0,)  ~A(176.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->176.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,179.0,)  ~D(Alice,179.0,)  ~B(179.0,179.1,)  ~C(179.0,179.1,)  
+querying: 179
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,179.0,)  ~D(Alice,179.0,)  ~B(179.0,179.1,)  ~C(179.0,179.1,)  with  B(John,Alice,)  
+subs: 179.1->Alice, 179.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,179.0,)  ~D(Alice,179.0,)  ~B(179.0,179.1,)  ~C(179.0,179.1,)  with  B(John,Bob,)  
+subs: 179.1->Bob, 179.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,179.0,)  ~D(Alice,179.0,)  ~B(179.0,179.1,)  ~C(179.0,179.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->179.1, 5.0->179.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,182.0,)  ~D(Alice,182.0,)  ~B(182.0,182.1,)  ~D(182.0,182.1,)  ~F(182.1,)  
+querying: 180
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 183
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 184
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 186
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 187
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,190.0,)  ~C(Alice,190.0,)  
+querying: 190
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,190.0,)  ~C(Alice,190.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->190.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,191.0,)  ~D(Alice,191.0,)  ~F(191.0,)  
+querying: 191
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,191.0,)  ~D(Alice,191.0,)  ~F(191.0,)  with  F(Bob,)  
+subs: 191.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,191.0,)  ~D(Alice,191.0,)  ~F(191.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->191.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,193.0,)  ~D(Alice,193.0,)  ~H(193.0,)  
+querying: 192
+querying: 193
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,193.0,)  ~D(Alice,193.0,)  ~H(193.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->193.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,194.0,)  ~D(Alice,194.0,)  ~A(194.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,193.0,)  ~D(Alice,193.0,)  ~H(193.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->193.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,195.0,)  ~D(Alice,195.0,)  ~G(195.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,193.0,)  ~D(Alice,193.0,)  ~H(193.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->193.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,196.0,)  ~D(Alice,196.0,)  ~R(196.0,)  
+querying: 194
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,194.0,)  ~D(Alice,194.0,)  ~A(194.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->194.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,197.0,)  ~D(Alice,197.0,)  ~B(197.0,197.1,)  ~C(197.0,197.1,)  
+querying: 197
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,197.0,)  ~D(Alice,197.0,)  ~B(197.0,197.1,)  ~C(197.0,197.1,)  with  B(John,Alice,)  
+subs: 197.1->Alice, 197.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,197.0,)  ~D(Alice,197.0,)  ~B(197.0,197.1,)  ~C(197.0,197.1,)  with  B(John,Bob,)  
+subs: 197.1->Bob, 197.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,197.0,)  ~D(Alice,197.0,)  ~B(197.0,197.1,)  ~C(197.0,197.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->197.1, 5.0->197.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,200.0,)  ~D(Alice,200.0,)  ~B(200.0,200.1,)  ~D(200.0,200.1,)  ~F(200.1,)  
+querying: 198
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 201
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 202
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 204
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 205
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,208.0,)  ~C(Alice,208.0,)  
+querying: 208
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,208.0,)  ~C(Alice,208.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->208.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,209.0,)  ~D(Alice,209.0,)  ~F(209.0,)  
+querying: 209
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,209.0,)  ~D(Alice,209.0,)  ~F(209.0,)  with  F(Bob,)  
+subs: 209.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,209.0,)  ~D(Alice,209.0,)  ~F(209.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->209.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,211.0,)  ~D(Alice,211.0,)  ~H(211.0,)  
+querying: 210
+querying: 211
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,211.0,)  ~D(Alice,211.0,)  ~H(211.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->211.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,212.0,)  ~D(Alice,212.0,)  ~A(212.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,211.0,)  ~D(Alice,211.0,)  ~H(211.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->211.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,213.0,)  ~D(Alice,213.0,)  ~G(213.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,211.0,)  ~D(Alice,211.0,)  ~H(211.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->211.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,214.0,)  ~D(Alice,214.0,)  ~R(214.0,)  
+querying: 212
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,212.0,)  ~D(Alice,212.0,)  ~A(212.0,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->212.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,215.0,)  ~D(Alice,215.0,)  ~B(215.0,215.1,)  ~C(215.0,215.1,)  
+querying: 215
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,215.0,)  ~D(Alice,215.0,)  ~B(215.0,215.1,)  ~C(215.0,215.1,)  with  B(John,Alice,)  
+subs: 215.1->Alice, 215.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,215.0,)  ~D(Alice,215.0,)  ~B(215.0,215.1,)  ~C(215.0,215.1,)  with  B(John,Bob,)  
+subs: 215.1->Bob, 215.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,215.0,)  ~D(Alice,215.0,)  ~B(215.0,215.1,)  ~C(215.0,215.1,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->215.1, 5.0->215.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,218.0,)  ~D(Alice,218.0,)  ~B(218.0,218.1,)  ~D(218.0,218.1,)  ~F(218.1,)  
+querying: 216
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~C(John,Alice,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->Alice, 5.0->John, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  
+querying: 219
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  D(John,Alice,)  
+subs: 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~D(John,Alice,)  ~H(Alice,)  
+querying: 220
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~F(Alice,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  
+querying: 222
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~G(Alice,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~H(Alice,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~R(Alice,)  
+querying: 223
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~A(Alice,)  with  ~B(4.0,4.1,)  ~C(4.0,4.1,)  A(4.0,)  
+subs: 4.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,226.0,)  ~C(Alice,226.0,)  
+querying: 226
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,226.0,)  ~C(Alice,226.0,)  with  ~D(5.0,5.1,)  ~F(5.1,)  C(5.0,5.1,)  
+subs: 5.1->226.0, 5.0->Alice, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,227.0,)  ~D(Alice,227.0,)  ~F(227.0,)  
+querying: 227
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,227.0,)  ~D(Alice,227.0,)  ~F(227.0,)  with  F(Bob,)  
+subs: 227.0->Bob, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,Bob,)  ~D(Alice,Bob,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,227.0,)  ~D(Alice,227.0,)  ~F(227.0,)  with  ~H(11.0,)  F(11.0,)  
+subs: 11.0->227.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,229.0,)  ~D(Alice,229.0,)  ~H(229.0,)  
+querying: 228
+querying: 229
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,229.0,)  ~D(Alice,229.0,)  ~H(229.0,)  with  ~A(3.0,)  H(3.0,)  
+subs: 3.0->229.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,230.0,)  ~D(Alice,230.0,)  ~A(230.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,229.0,)  ~D(Alice,229.0,)  ~H(229.0,)  with  ~G(10.0,)  H(10.0,)  
+subs: 10.0->229.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,231.0,)  ~D(Alice,231.0,)  ~G(231.0,)  
+--------------
+resolving: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,229.0,)  ~D(Alice,229.0,)  ~H(229.0,)  with  ~R(12.0,)  H(12.0,)  
+subs: 12.0->229.0, 
+adding: ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,John,)  ~D(Alice,John,)  ~B(Alice,232.0,)  ~D(Alice,232.0,)  ~R(232.0,)  
+querying: 230

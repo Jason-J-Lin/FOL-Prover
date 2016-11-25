@@ -248,12 +248,18 @@ void FolParser::notInwd(TreeNode*& tn){
 }
 
 void FolParser::andDstb(TreeNode* tn){
-    if(!tn) return;
+    while(andDstbRecur(tn));
+}
+
+bool FolParser::andDstbRecur(TreeNode* tn){
+    if(!tn) return false;
+    bool ret = false;
     if(tn->op == OP_OR){
         if(tn->left->op == OP_AND){
             #ifdef DEBUG_PARSE
             cout<<"left and distributed"<<endl;
             #endif
+            ret = true;
             tn->op = OP_AND;
             tn->left->op = OP_OR;
             TreeNode* tempRight = new TreeNode();                        // Node Creating
@@ -266,6 +272,7 @@ void FolParser::andDstb(TreeNode* tn){
             #ifdef DEBUG_PARSE
             cout<<"left and distributed"<<endl;
             #endif
+            ret = true;
             tn->op = OP_AND;
             tn->right->op = OP_OR;
             TreeNode* tempLeft = new TreeNode();                         // Node Creating
@@ -276,8 +283,9 @@ void FolParser::andDstb(TreeNode* tn){
             tn->left = tempLeft;
         }
     }
-    andDstb(tn->left);                                  // Unsure about this logic
-    andDstb(tn->right);
+    if(andDstbRecur(tn->left)) ret = true;                                  // Unsure about this logic
+    if(andDstbRecur(tn->right)) ret = true;
+    return ret;
 }
 
 void FolParser::archiveKB(TreeNode* tn, Clause* c){
