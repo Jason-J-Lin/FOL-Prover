@@ -106,6 +106,17 @@ void renameVariable(KB &kb, int index){
     }
 }
 
+void printClause(Clause &c){
+    for(Literal i : c.literals){
+        if(!i.istrue) cout<<"~";
+        cout<<i.predicate<<"(";
+        for(Argument a : i.arguments){
+            cout<<a.id<<",";
+        }
+        cout<<")  ";
+    }
+}
+
 /*  looks like a backward chaining pattern*/
 bool query(KB &kb, Clause qc){
     vector<int> toquery;
@@ -132,6 +143,13 @@ bool query(KB &kb, Clause qc){
             // #endif
             if(unifiable(ql, ci.literals[mq.clausepos[i]],sub)){
                 Clause cq(qc);
+                #ifdef DEBUG_PROVE
+                    cout<<"resolving: ";
+                    printClause(cq);
+                    cout<<"with ";
+                    printClause(ci);
+                    cout<<endl;
+                #endif
                 cq.composition.insert(mq.clauseind[i]);
                 unify(cq, ci, sub);
                 deduct(cq, ind_qc);
@@ -144,7 +162,9 @@ bool query(KB &kb, Clause qc){
                 }
                 toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
                 #ifdef DEBUG_PROVE
-                    cout<<"adding: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
+                    cout<<"adding: ";    //  impossible to have same predicate name with different argument number.
+                    printClause(cq);
+                    cout<<endl;
                 #endif
                 tellKB(kb, cq);                         // put new clause back to kb.
                 renameVariable(kb, kb.clauses.size()-1);
@@ -165,7 +185,7 @@ int main(){
     /*
         read file
         */
-    ifstream t("./test.txt");
+    ifstream t("./test5.txt");
     std::vector<string> folkb, folq;
     
     /*

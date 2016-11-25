@@ -1,0 +1,11 @@
+1
+Uncle(John, Sarah)
+8
+(((Male(x) & Parent(y, z)) & Sibling(x, y)) => Uncle(x, z))
+(Father(x, y) => Parent(x, y))
+(Mother(x, y) => Parent(x, y))
+((Parent(x, p) & Parent(x, w)) => Sibling(p, w))
+Male(John)
+Mother(Nicole, Sarah)
+Father(Shawn, Nicole)
+Father(Shawn, John)

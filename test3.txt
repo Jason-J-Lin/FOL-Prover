@@ -1,0 +1,17 @@
+1
+G(Bob)
+14 
+(D(x,y) => (~H(y))) 
+B(John,Alice) 
+B(John,Bob)
+(A(x) => H(x))
+((B(x,y) & C(x,y)) => A(x))
+((D(x,y) & F(y)) => C(x,y))
+D(John,Alice)
+F(Bob) 
+D(John,Bob) 
+(F(x) => G(x))
+(G(x) => H(x))
+(H(x) => F(x))
+(R(x) => H(x))
+R(Alice) 

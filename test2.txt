@@ -1,0 +1,8 @@
+1
+A(Bob)
+5
+(B(y) => (~A(y))) 
+C(Alice) 
+B(Bob)
+(B(x) => C(x))
+((B(x) & C(x)) => A(x))
