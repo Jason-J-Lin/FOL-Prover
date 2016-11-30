@@ -5,6 +5,7 @@
 using namespace std;
 
 #define DEBUG_PROVE
+#define KB_LIMIT 3000
 
 void renameVariable(KB &kb, int index){
     unordered_map<string,string> save;
@@ -41,7 +42,7 @@ public:
         depthLimit *= 2;
     }
     
-    bool query(Clause qc){
+    bool query(Clause qc, int depth){
         vector<int> toquery;
         int ind_qc = 0;
         for(Literal ql : qc.literals){
@@ -89,8 +90,9 @@ public:
                         #endif
                         return true;    // add ci into cq.    if nothing left, the query succeeds.
                     }
-                    if(cq.literals.size()>depthLimit) continue;
-                    if(kb.clauses.size()>1000){
+                    if(checkTautology(cq)) continue;
+                    if(depth>=depthLimit) continue;
+                    if(kb.clauses.size()>KB_LIMIT){
                         #ifdef DEBUG_PROVE
                             cout<<"KB exceeds, abort"<<endl;    //  impossible to have same predicate name with different argument number.
                         #endif
@@ -100,7 +102,7 @@ public:
                     tellKB(kb, cq);                         // put new clause back to kb.
                     renameVariable(kb, kb.clauses.size()-1);
                     #ifdef DEBUG_PROVE
-                        cout<<"adding: ";    //  impossible to have same predicate name with different argument number.
+                        cout<<"adding "<<kb.clauses.size()-1<<": ";    //  impossible to have same predicate name with different argument number.
                         printClause(kb.clauses.back());
                         cout<<endl;
                     #endif
@@ -112,7 +114,7 @@ public:
             #ifdef DEBUG_PROVE
                 cout<<"querying: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
             #endif
-            if(query(kb.clauses[i])) return true;
+            if(query(kb.clauses[i], depth+1)) return true;
         }
         return false;
     }
@@ -205,6 +207,50 @@ protected:
         return false;
     }
     
+    bool checkTautology(Clause &c){
+        unordered_map<string, vector<Literal>> save;
+        vector<int> duplicate;
+        int ind = 0;
+        for(Literal l : c.literals){
+            if(save.find(l.predicate)==save.end()){
+                save.emplace(l.predicate, vector<Literal>(1,l));
+            }else{
+                for(Literal l2: save[l.predicate]){
+                    bool same = true;
+                    for(int i = 0; i<l.arguments.size();++i){
+                        if(l.arguments[i].id!=l2.arguments[i].id){
+                            same = false;
+                            break;
+                        }
+                    }
+                    if(same){
+                        if(l.istrue == l2.istrue){
+                            #ifdef DEBUG_PROVE
+                            cout<<"Duplicate:"<<endl;
+                            printClause(c);
+                            #endif
+                            duplicate.push_back(ind);
+                            break;
+                        }else{
+                            #ifdef DEBUG_PROVE
+                            cout<<"Tautology:"<<endl;
+                            printClause(c);
+                            #endif
+                            return true; 
+                        }
+                        
+                    }
+                }
+                save[l.predicate].push_back(l);
+            }
+            ++ind;
+        }
+        for(int i : duplicate){
+            c.literals.erase(c.literals.begin()+i);
+        }
+        return false;
+    }
+    
     /*  add the clause back to kb,
         1. add clause to kb.
         2. update the indexing map of kb.
@@ -285,7 +331,7 @@ int main(int argc, char** argv){
         cout<<endl;
         KB temp_kb(kb);
         Prover p(temp_kb);
-        if(p.query(c)) output<<"TRUE"<<endl;
+        if(p.query(c,1)) output<<"TRUE"<<endl;
         else output<<"FALSE"<<endl;
     }
     output.close();
