@@ -36,6 +36,9 @@ class Prover{
 public:
     Prover(KB k){
         kb = k;
+        depthLimit = 0;
+        for(Clause c : kb.clauses) depthLimit = max(depthLimit, (int)c.literals.size());
+        depthLimit *= 2;
     }
     
     bool query(Clause qc){
@@ -86,7 +89,7 @@ public:
                         #endif
                         return true;    // add ci into cq.    if nothing left, the query succeeds.
                     }
-                    if(cq.literals.size()>10) continue;
+                    if(cq.literals.size()>depthLimit) continue;
                     if(kb.clauses.size()>1000){
                         #ifdef DEBUG_PROVE
                             cout<<"KB exceeds, abort"<<endl;    //  impossible to have same predicate name with different argument number.
@@ -116,6 +119,7 @@ public:
     
 protected:
     KB kb;
+    int depthLimit;
     bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
         if(l1.arguments.size()!= l2.arguments.size()){
             #ifdef DEBUG_PROVE
@@ -274,7 +278,7 @@ int main(int argc, char** argv){
         write to output files
         */
     ofstream output("output.txt");
-
+    
     for(Clause c : queries){
         cout<<endl<<"clause querying";
         printClause(c);

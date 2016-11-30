@@ -78,6 +78,19 @@ bool FolParser::parse(string &s, TreeNode* tn){
         ----------------------
         start with not (only need to look at the first char)
     */ 
+    if(s.at(tn->l)=='~'){
+        #ifdef DEBUG_PARSE
+        cout<<"not "<<tn->l<<" "<<tn->r<<endl;
+        #endif
+        tn->op = OP_NOT;
+        TreeNode* tn1 = new TreeNode();             //creating new node
+        tn->left = tn1;
+        tn->right = NULL;
+        tn1->l = tn->l+1;
+        tn1->r = tn->r;
+        parse(s, tn1);
+        return true;
+    }
     if(s.at(tn->l+1)=='~'){
         #ifdef DEBUG_PARSE
         cout<<"not "<<tn->l<<" "<<tn->r<<endl;
