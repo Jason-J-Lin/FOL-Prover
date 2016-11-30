@@ -150,6 +150,10 @@ bool FolParser::parse(string &s, TreeNode* tn){
     tn->op = OP_DEF;
     tn->left = NULL;
     tn->right = NULL;
+    if(s[tn->l] == '('){
+        ++tn->l;
+        --tn->r;
+    }
     tn->context = s.substr(tn->l, tn->r - tn->l+1);
     #ifdef DEBUG_PARSE
     cout<<"def: "<<tn->context<<endl;
@@ -378,7 +382,7 @@ Literal FolParser::parseLiteral(TreeNode* tn){
             l.predicate = s.substr(0,i);                //  the problem is: how to update kb index mapping??
             ++i;
             for(int j = i; j< s.size(); ++j){
-                if(s[j] == ',' || j == s.size()-1){
+                if(s[j] == ',' || s[j] == ')'){     //j == s.size()-1 won't work when there is a tab or something
                     Argument a;
                     string temps = s.substr(i, j-i);
                     i = j+1;
@@ -386,6 +390,7 @@ Literal FolParser::parseLiteral(TreeNode* tn){
                     else a.isvariable = true;
                     a.id = temps;
                     l.arguments.push_back(a);
+                    if(s[j] == ')') break;
                 }
             }
             break;
