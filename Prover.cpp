@@ -1,15 +1,16 @@
 #include"Parser.h"
 #include<iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
-#define DEBUG_PROVE
-#define KB_LIMIT 3000
+// #define DEBUG_PROVE
+#define KB_LIMIT 5000
 
-void renameVariable(KB &kb, int index){
+void renameVariable(Clause &c, int index){
     unordered_map<string,string> save;
-    for(auto l = kb.clauses[index].literals.begin(); l != kb.clauses[index].literals.end(); ++l){
+    for(auto l = c.literals.begin(); l != c.literals.end(); ++l){
         for(auto a = l->arguments.begin(); a!= l->arguments.end(); ++a){
             if(!a->isvariable) continue;
             if(save.find(a->id) != save.end()) a->id = save[a->id];
@@ -40,6 +41,22 @@ public:
         depthLimit = 0;
         for(Clause c : kb.clauses) depthLimit = max(depthLimit, (int)c.literals.size());
         depthLimit *= 2;
+    }
+    
+    bool prove(Clause c){
+        kbind = kb.clauses.size();
+        if(query(c,1)) return true;
+        while(kbind<kb.clauses.size()){
+            if(query(kb.clauses[kbind],1)) return true;
+            ++kbind;
+            if(kb.clauses.size()>KB_LIMIT){
+                #ifdef DEBUG_PROVE
+                    cout<<"KB exceeds, abort"<<endl;    //  impossible to have same predicate name with different argument number.
+                #endif
+                return false;
+            }
+        }
+        return false;
     }
     
     bool query(Clause qc, int depth){
@@ -91,6 +108,8 @@ public:
                         return true;    // add ci into cq.    if nothing left, the query succeeds.
                     }
                     if(checkTautology(cq)) continue;
+                    renameVariable(cq, kb.clauses.size());
+                    if(checkDuplicate(cq)) continue;
                     if(depth>=depthLimit) continue;
                     if(kb.clauses.size()>KB_LIMIT){
                         #ifdef DEBUG_PROVE
@@ -100,7 +119,7 @@ public:
                     }
                     toquery.push_back(kb.clauses.size());           // add to a queue, later query them.
                     tellKB(kb, cq);                         // put new clause back to kb.
-                    renameVariable(kb, kb.clauses.size()-1);
+                    
                     #ifdef DEBUG_PROVE
                         cout<<"adding "<<kb.clauses.size()-1<<": ";    //  impossible to have same predicate name with different argument number.
                         printClause(kb.clauses.back());
@@ -110,18 +129,18 @@ public:
             }
             ++ind_qc;
         }
-        for(int i : toquery){
-            #ifdef DEBUG_PROVE
-                cout<<"querying: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
-            #endif
-            if(query(kb.clauses[i], depth+1)) return true;
-        }
+        // for(int i : toquery){
+        //     #ifdef DEBUG_PROVE
+        //         cout<<"querying: "<<i<<endl;    //  impossible to have same predicate name with different argument number.
+        //     #endif
+        //     if(query(kb.clauses[i], depth+1)) return true;
+        // }
         return false;
     }
     
 protected:
     KB kb;
-    int depthLimit;
+    int depthLimit, kbind;
     bool unifiable(Literal l1, Literal l2, unordered_map<string, Argument> &sub){
         if(l1.arguments.size()!= l2.arguments.size()){
             #ifdef DEBUG_PROVE
@@ -251,6 +270,51 @@ protected:
         return false;
     }
     
+    bool checkDuplicate(Clause &c){
+        Mapping mq = kb.index[c.literals[0].predicate];
+        for(int i = 0; i< mq.clausepos.size(); ++i){
+            if(mq.clausepos[i]!=0 || c.literals.size()!=kb.clauses[mq.clauseind[i]].literals.size()) continue;
+            bool dup = true;
+            for(int j = 0; j < c.literals.size(); ++j){
+                if((c.literals[j].istrue != kb.clauses[mq.clauseind[i]].literals[j].istrue)||(c.literals[j].predicate != kb.clauses[mq.clauseind[i]].literals[j].predicate)){
+                    dup = false;
+                    break;
+                }
+                for(int k = 0; k<c.literals[j].arguments.size(); ++k){
+                    if(c.literals[j].arguments[k].isvariable != kb.clauses[mq.clauseind[i]].literals[j].arguments[k].isvariable){
+                        dup = false;
+                        break;
+                    }
+                    if(c.literals[j].arguments[k].isvariable == false){
+                        if(c.literals[j].arguments[k].id != kb.clauses[mq.clauseind[i]].literals[j].arguments[k].id ){
+                            dup = false;
+                            break;
+                        }else continue;
+                    }
+
+                    if(c.literals[j].arguments[k].isvariable == true){
+                        string id1 = c.literals[j].arguments[k].id;
+                        string id2 = kb.clauses[mq.clauseind[i]].literals[j].arguments[k].id;
+                        float absolute = abs(stof(id1)-stof(id2));
+                        if(floor(absolute)!=absolute){
+                            dup = false;
+                            break;
+                        }
+                    }
+                }
+                if(!dup) break;
+            }
+            if(dup){
+                #ifdef DEBUG_PROVE
+                cout<<"duplicate with kb:"<<endl;
+                printClause(c);
+                #endif
+                return true;
+            }
+        }
+        return false;
+    }
+    
     /*  add the clause back to kb,
         1. add clause to kb.
         2. update the indexing map of kb.
@@ -318,7 +382,7 @@ int main(int argc, char** argv){
     vector<Clause> queries = parser->getQuery();
     
     for(int i = 0; i < kb.clauses.size(); ++i){
-        renameVariable(kb, i);
+        renameVariable(kb.clauses[i], i);
     }
     /*
         write to output files
@@ -331,7 +395,7 @@ int main(int argc, char** argv){
         cout<<endl;
         KB temp_kb(kb);
         Prover p(temp_kb);
-        if(p.query(c,1)) output<<"TRUE"<<endl;
+        if(p.prove(c)) output<<"TRUE"<<endl;
         else output<<"FALSE"<<endl;
     }
     output.close();

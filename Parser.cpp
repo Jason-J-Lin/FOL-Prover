@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define DEBUG_PARSE         // control log
+// #define DEBUG_PARSE         // control log
 
 FolParser::FolParser(vector<string> folkb, vector<string> folq){
     for(string s : folkb){
