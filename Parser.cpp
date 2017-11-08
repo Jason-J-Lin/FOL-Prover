@@ -7,8 +7,13 @@
 using namespace std;
 
 // #define DEBUG_PARSE         // control log
+/* The original clauses are in string format. This file is saving the clauses into a tree structure.
+   The tree structure helps to convert the clauses to CNF and furthur save in a more compact way (structures defined in header file).
+   */
 
 FolParser::FolParser(vector<string> folkb, vector<string> folq){
+    /* Parse, convert and archive queries and kb.
+    */
     for(string s : folkb){
         s.erase(remove(s.begin(),s.end(),' '), s.end());
         #ifdef DEBUG_PARSE
@@ -16,29 +21,27 @@ FolParser::FolParser(vector<string> folkb, vector<string> folq){
         #endif
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
-        parse(s, head);
-        convert(head);
+        parse(s, head); // Parse the string to a simple tree.
+        convert(head); // Some steps to convert the tree into CNF
         #ifdef DEBUG_PARSE
         cout<<"--------------archiving"<<endl;
         #endif
-        archiveKB(head, NULL);
+        archiveKB(head, NULL); // Put the CNF into our knowledge base.
         delete head;
     }
-    #ifdef DEBUG_PARSE
-    cout<<"Queries"<<endl;
-    #endif
+    
     for(string s : folq){
         s.erase(remove(s.begin(),s.end(),' '), s.end());
         cout<<"--------------parsing "<<s<<endl;
         TreeNode* head = new TreeNode();
         head->r = s.size()-1;
-        parse(s, head);
-        negate(head);
+        parse(s, head); 
+        negate(head); // Negate the queries before archiving.
         convert(head);
         #ifdef DEBUG_PARSE
         cout<<"--------------archiving"<<endl;
         #endif
-        archiveQ(head, NULL);
+        archiveQ(head, NULL); // Put the CNF into our query base.
         delete head;
     }
     #ifdef DEBUG_PARSE
@@ -67,7 +70,8 @@ vector<Clause> FolParser::getQuery(){
 //     "sub1"  "sub2"
 // 
 bool FolParser::parse(string &s, TreeNode* tn){
-    // need a judgement here? whether to continue.
+    /* Convert a string to a tree. Recursively called.
+    */
     int leftsemi = 0;
     /* five possible parsing:
         not
@@ -105,7 +109,7 @@ bool FolParser::parse(string &s, TreeNode* tn){
         return true;
     }
     for(int i = tn->l+1; i< tn->r-1; ++i){
-        if(s[i] == ' ') continue;   // or to eliminate all space together?
+        if(s[i] == ' ') continue;
         if(leftsemi == 0){
             if(s[i] == '&'){
                 #ifdef DEBUG_PARSE
@@ -175,6 +179,8 @@ bool FolParser::parse(string &s, TreeNode* tn){
 }
 
 bool FolParser::convert(TreeNode*& tn){
+    /* Some steps to convert to CNF
+    */
     #ifdef DEBUG_PARSE
     cout<<"--------------converting"<<endl;
     #endif
@@ -185,6 +191,8 @@ bool FolParser::convert(TreeNode*& tn){
 }
 
 void FolParser::negate(TreeNode*& tn){
+    /* Negate queries. Used in proving by contradiction.
+    */
     #ifdef DEBUG_PARSE
     cout<<"--------------negating"<<endl;
     #endif
@@ -306,6 +314,8 @@ bool FolParser::andDstbRecur(TreeNode* tn){
 }
 
 void FolParser::archiveKB(TreeNode* tn, Clause* c){
+    /* Save the tree as a Clause structure and put into KB.
+    */
     if(!tn) return;
     if(tn->op == OP_AND){
         archiveKB(tn->left, c);
